@@ -1,148 +1,35 @@
-:root {
-  --bg: #f3f6fb;
-  --card: #ffffff;
-  --primary: #4f46e5;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --radius: 18px;
-  --shadow: 0 25px 50px rgba(0,0,0,.12);
-}
-
-* {
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
 body {
-  margin: 0;
-  background: var(--bg);
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+}
+
+.main {
   min-height: 100vh;
-}
-
-/* Floating background */
-.floating-shapes .shape {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: .3;
-  z-index: -1;
-}
-.shape-1 { width: 280px; height:280px; background:#6366f1; top:-80px; left:-80px; }
-.shape-2 { width: 220px; height:220px; background:#22c55e; bottom:-100px; right:-80px; }
-.shape-3 { width: 200px; height:200px; background:#f59e0b; top:40%; left:40%; }
-
-/* Layout */
-.main-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 16px;
 }
 
-.payment-card {
-  width: 100%;
-  max-width: 420px;
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+.card {
+  background: #fff;
   padding: 24px;
-}
-
-/* Header */
-.card-header {
+  border-radius: 12px;
+  width: 320px;
   text-align: center;
 }
-.logo {
-  width: 64px;
-  height: 64px;
-  background: var(--primary);
-  color: #fff;
-  border-radius: 50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size: 28px;
-  margin: 0 auto 12px;
-}
-.subtitle {
-  color: var(--muted);
-  font-size: 14px;
-}
 
-/* Amount */
-.amount-box {
-  text-align: center;
-  margin: 20px 0;
-}
-.amount-box span {
-  font-size: 13px;
-  color: var(--muted);
-}
-.amount-box h2 {
-  font-size: 30px;
-  font-weight: 800;
-}
-
-/* QR */
-.qr-box {
-  display: flex;
-  justify-content: center;
+.qr {
+  width: 240px;
   margin: 16px 0;
 }
-#qr canvas {
-  background: #fff;
-  padding: 12px;
-  border-radius: 14px;
-}
 
-/* Upload */
-.upload-box {
-  margin-top: 16px;
-}
-.upload-label {
-  display: block;
-  padding: 14px;
-  border: 2px dashed #c7d2fe;
-  border-radius: 12px;
-  text-align: center;
-  color: var(--primary);
-  cursor: pointer;
-}
-.upload-label input {
-  display: none;
-}
-
-.btn-primary {
+button {
   width: 100%;
+  padding: 12px;
   margin-top: 12px;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  background: var(--primary);
-  color: #fff;
-  font-size: 15px;
-  cursor: pointer;
 }
 
-/* Status */
-#status {
-  margin-top: 10px;
-  text-align: center;
-  font-size: 14px;
-}
-
-/* Info */
-.info {
-  display: flex;
-  justify-content: space-between;
-  margin: 18px 0;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  font-size: 12px;
-  color: var(--muted);
+.hint {
+  font-size: 13px;
+  color: #666;
 }
