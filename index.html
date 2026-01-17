@@ -8,22 +8,23 @@
 </head>
 <body>
 
-<div class="main-container">
-  <div class="payment-card">
+<div class="main">
+  <div class="card">
 
     <h2>Pembayaran QRIS</h2>
-
     <p>Total Pembayaran</p>
     <h1 id="amount">Rp 0</h1>
 
     <!-- QR STATIS ASLI -->
-    <div class="qr-box">
-      <img src="qris.png" alt="QRIS" class="qr-image">
-    </div>
+    <img src="qris.png" class="qr" alt="QRIS">
 
-    <p class="note">
-      Scan QR lalu masukkan nominal secara manual
-    </p>
+    <p class="hint">Scan QR lalu masukkan nominal manual</p>
+
+    <!-- Upload -->
+    <input type="file" id="proof" accept="image/*">
+    <button onclick="verify()">Verifikasi Pembayaran</button>
+
+    <p id="status"></p>
 
   </div>
 </div>
