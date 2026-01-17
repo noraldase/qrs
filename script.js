@@ -1,7 +1,7 @@
 // ================================
 // KONFIGURASI BACKEND (WAJIB)
 // ================================
-const BACKEND_URL = "https://rural-savings-waiting-representation.trycloudflare.com/verify";
+const BACKEND_URL = "https://demonstration-least-gibraltar-scores.trycloudflare.com/verify";
 
 // ================================
 // AMBIL NOMINAL DARI URL
