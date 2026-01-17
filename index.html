@@ -10,23 +10,15 @@
 
 <div class="main">
   <div class="card">
-
     <h2>Pembayaran QRIS</h2>
+    <p>ID Pemain: <b id="player-id-display">Memuat...</b></p>
     <p>Total Pembayaran</p>
     <h1 id="amount">Rp 0</h1>
-
-    <!-- QR STATIS ASLI -->
     <img src="qris.png" class="qr" alt="QRIS">
-
-    <p class="hint">Scan QR lalu masukkan nominal manual</p>
-
-    <!-- Upload -->
     <input type="file" id="proof" accept="image/*">
     <button onclick="verify()">Verifikasi Pembayaran</button>
-
     <p id="status"></p>
-
-  </div>
+</div>
 </div>
 
 <script src="script.js"></script>
