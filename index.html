@@ -1,27 +1,83 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Pembayaran QRIS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Pembayaran QRIS - Topup NeoParty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- QR -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
 <body>
 
-<h2>Pembayaran QRIS</h2>
-<p>Total yang harus dibayar:</p>
-<h1 id="amount">Rp 0</h1>
+<!-- Background -->
+<div class="floating-shapes">
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
+</div>
 
-<div id="qr"></div>
+<!-- Card -->
+<div class="main-container">
+  <div class="payment-card">
 
-<hr>
+    <!-- Header -->
+    <div class="card-header">
+      <div class="logo">
+        <i class="fas fa-qrcode"></i>
+      </div>
+      <h1>Pembayaran QRIS</h1>
+      <p class="subtitle">Aldo Soft Payment</p>
+    </div>
 
-<h3>Upload Bukti Pembayaran</h3>
+    <!-- Amount -->
+    <div class="amount-box">
+      <span>Total Pembayaran</span>
+      <h2 id="amount">Rp 0</h2>
+    </div>
 
-<input type="file" id="proof" accept="image/*"><br><br>
-<button onclick="verify()">Verifikasi Pembayaran</button>
+    <!-- QR -->
+    <div class="qr-box">
+      <div id="qr"></div>
+    </div>
 
-<p id="status"></p>
+    <!-- Upload -->
+    <div class="upload-box">
+      <label class="upload-label">
+        <i class="fas fa-upload"></i>
+        Upload Bukti Pembayaran
+        <input type="file" id="proof" accept="image/*">
+      </label>
+
+      <button onclick="verify()" class="btn-primary">
+        <i class="fas fa-check-circle"></i>
+        Verifikasi Pembayaran
+      </button>
+
+      <p id="status"></p>
+    </div>
+
+    <!-- Info -->
+    <div class="info">
+      <div><i class="fas fa-lock"></i> Aman</div>
+      <div><i class="fas fa-bolt"></i> Instan</div>
+      <div><i class="fas fa-check-circle"></i> Terpercaya</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Gunakan QRIS untuk semua e-wallet & mobile banking
+    </div>
+
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
