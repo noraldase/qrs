@@ -1,35 +1,60 @@
+// ================================
+// KONFIGURASI BACKEND (WAJIB)
+// ================================
+const BACKEND_URL = "http://104.245.34.139:3000/verify";
+
+// ================================
+// AMBIL NOMINAL DARI URL
+// contoh: ?pay=100
+// ================================
 const params = new URLSearchParams(window.location.search);
-const pay = Number(params.get("pay")) || 0;
+const payAmount = Number(params.get("pay")) || 0;
 
-document.getElementById("amount").innerText =
-  "Rp " + pay.toLocaleString("id-ID");
+// Tampilkan nominal (HANYA TEKS, QR TETAP STATIS)
+const amountEl = document.getElementById("amount");
+if (amountEl) {
+  amountEl.innerText = "Rp " + payAmount.toLocaleString("id-ID");
+}
 
+// ================================
+// VERIFIKASI PEMBAYARAN (UPLOAD + OCR)
+// ================================
 async function verify() {
-  const file = document.getElementById("proof").files[0];
+  const statusEl = document.getElementById("status");
+  const fileInput = document.getElementById("proof");
+  const file = fileInput && fileInput.files[0];
+
   if (!file) {
-    document.getElementById("status").innerText =
-      "Upload bukti pembayaran";
+    if (statusEl) statusEl.innerText = "Silakan upload bukti pembayaran.";
     return;
   }
 
-  document.getElementById("status").innerText =
-    "Memverifikasi pembayaran...";
+  if (statusEl) statusEl.innerText = "Memverifikasi pembayaran...";
 
-  const form = new FormData();
-  form.append("expectedAmount", pay);
-  form.append("proof", file);
+  try {
+    const form = new FormData();
+    form.append("expectedAmount", payAmount);
+    form.append("proof", file);
 
-  const res = await fetch("/verify", {
-    method: "POST",
-    body: form
-  });
+    const res = await fetch(BACKEND_URL, {
+      method: "POST",
+      body: form
+    });
 
-  const data = await res.json();
+    if (!res.ok) {
+      throw new Error("Gagal menghubungi backend");
+    }
 
-  if (data.status === "SUCCESS") {
-    window.location.href = "/success.html";
-  } else {
-    document.getElementById("status").innerText =
-      "Verifikasi gagal, coba ulangi";
+    const data = await res.json();
+
+    if (data.status === "SUCCESS") {
+      // Berhasil → redirect
+      window.location.href = "/success.html";
+    } else {
+      if (statusEl) statusEl.innerText = "Verifikasi gagal. Coba ulangi.";
+    }
+  } catch (err) {
+    if (statusEl) statusEl.innerText = "Terjadi kesalahan. Coba lagi.";
+    console.error(err);
   }
 }
