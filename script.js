@@ -1,7 +1,7 @@
 // ================================
 // KONFIGURASI BACKEND (WAJIB)
 // ================================
-const BACKEND_URL = "http://104.245.34.139:3000/verify";
+const BACKEND_URL = "https://reservation-bool-entered-speech.trycloudflare.com//verify";
 
 // ================================
 // AMBIL NOMINAL DARI URL
